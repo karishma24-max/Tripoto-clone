@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Package  from '../Pages/Package/Package'
+import Singlepackagepage from '../Pages/Package/Singlepackagepage'
 
 const Allroutes = () => {
   return (
@@ -8,6 +9,7 @@ const Allroutes = () => {
         <Route />
         <Route/>
         <Route path="/package" element=<Package/>/>
+        <Route path="/singel" element=<Singlepackagepage/>/>
         <Route/>
 
     </Routes></div>

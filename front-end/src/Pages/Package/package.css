@@ -7,6 +7,7 @@
     text-align: center;
 
 }
+
 .trip-kiya{
     width:80%;
     margin:auto;
@@ -17,4 +18,25 @@
     margin-top: 20px;
     height:350px;
     border:2px solid black
+}
+@media (max-width: 850px){
+    .front_kiya{
+        height:350Px;
+        padding-top: 50px;
+        background-image: url("https://images.unsplash.com/photo-1472791108553-c9405341e398?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60");
+      
+        text-align: center;
+    
+    }
+
+}
+@media (max-width: 550px){
+    .front_kiya{
+        height:450Px;
+        padding-top: 50px;
+        background-image: url("https://images.unsplash.com/photo-1472791108553-c9405341e398?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60");
+      
+        text-align: center;
+    
+    }
 }
