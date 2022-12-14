@@ -7,8 +7,8 @@ const Package = () => {
   return (
     <div><div className="front_kiya">
     <Heading color="white" >Exclusive Tours & Holiday Packages</Heading>
-        <Input type="Search" width='550px' h="50px" bg="white" Placeholder="Search Packages for Destinations " mt="10px" /> <AiOutlineSearch w="100px"/>
-        <div><Button ml="10px" mt="20px" borderRadius="20px" color="cornflowerblue"  border="2px" borderColor='cornflowerblue'>Stay With Activities</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Destinations Packages</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Rajasthan</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Manali</Button></div>
+        <Input  type="Search"  width={{lg:'550px' ,md:"400",sm:"200px"}} h="50px" bg="white" Placeholder="Search Packages for Destinations " mt="10px" /> <AiOutlineSearch w="100px"/>
+        <Flex display={{lg:"flex", md: 'box',sm:'box' }} justifyContent="center"><Button ml="10px" mt="20px" borderRadius="20px" color="cornflowerblue"  border="2px" borderColor='cornflowerblue'>Stay With Activities</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Destinations Packages</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Rajasthan</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Manali</Button></Flex>
         <div><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="10px" borderRadius="20px">Himanchal</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="10px" borderRadius="20px">Uttarakhand</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="10px" borderRadius="20px">Rishikesh</Button></div>
     </div>
     
@@ -34,11 +34,11 @@ const Package = () => {
     <div className="trip-kiya">
         <Heading>Romantic Honeymoon Tour Packages</Heading>
         <Text>No matter whether you plan to explore the mountains and valleys with your BAE or soak in the sunshine by the beaches, Tripoto's Honeymoon Packages have got you covered!</Text>
-        <Flex mt="10px" justifyContent="space-around">
+        <Flex mt="10px" justifyContent="space-around" display={{lg:"flex", md: 'box',sm:'box' }}>
 <Box h="400px" w="250px" >
     <Image src="https://cdn1.tripoto.com/media/filter/tst/img/2176903/Image/1670312702_meghalaya_b_1.png" borderRadius="10px" w="250px" h="200px"/>
     <Heading size="20px" mt="10px">Meghalaya Christmas Special Packages</Heading>
-    <Flex mt="10px"><Flex><Box pt="5px"><FaPeriscope color="teal"  />
+    <Flex mt="10px"><Flex><Box pt="5px" ><FaPeriscope color="teal"  />
     </Box><Text ml="5px" color="teal" fontWeight="bold">Christmas</Text> </Flex><Spacer/>
     <Button bg="teal" width="60px" height="20px" borderRadius="10px">5D-4N</Button></Flex>
     <Flex mt="10px"><Flex><Text>₹ 42,000/ </Text><Text color="grey" ml="10px">Person</Text></Flex><Spacer/> <Button border="1px" borderColor="Teal" width="80px" color="teal" fontSize="14px">Get Quotes</Button></Flex>
@@ -72,9 +72,9 @@ const Package = () => {
 
 <Heading mt="10px"> Customizable Tour Packages</Heading>
 <Text mt="10px">Need help in getting a perfect travel experience according to your need? Tripoto has curated several travel packages covering some of the most popular holiday destinations for you!</Text>
-<Flex justifyContent="space-around" mt="10px"><Image ml="-15px" src="https://cdn1.tripoto.com/media/filter/tst/img/1789711/Image/1597313001_coup.jpg" w="30%" borderRadius="10px"/>
-<Image src="https://cdn1.tripoto.com/media/filter/tst/img/1789711/Image/1597742263_f.jpg" w="30%" borderRadius="10px"/>
-<Image src="https://cdn1.tripoto.com/media/filter/tst/img/1789711/Image/1597312306_budget.jpg" w="30%" borderRadius="10px"/>
+<Flex justifyContent="space-around" mt="10px" display={{lg:"flex", md: 'box',sm:'box' }} ><Image ml="-15px" mt="10px" src="https://cdn1.tripoto.com/media/filter/tst/img/1789711/Image/1597313001_coup.jpg" w={{lg:"30%",md:'100%',sm:'100%'}} borderRadius="10px"/>
+<Image src="https://cdn1.tripoto.com/media/filter/tst/img/1789711/Image/1597742263_f.jpg" mt="10px" w={{lg:"30%",md:'100%',sm:'100%'}} borderRadius="10px"/>
+<Image src="https://cdn1.tripoto.com/media/filter/tst/img/1789711/Image/1597312306_budget.jpg" mt="10px" w={{lg:"30%",md:'100%',sm:'100%'}} borderRadius="10px"/>
 
  </Flex> 
  
