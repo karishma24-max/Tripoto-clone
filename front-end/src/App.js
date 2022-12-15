@@ -1,10 +1,10 @@
 
-import Singapore from './component/inspiration/Singapore.jsx';
+import AllRoutes from './component/Routes/AllRoutes';
 
 function App() {
   return (
     <div>
-      <Singapore/>
+      <AllRoutes/>
     </div>
   );
 }
