@@ -16,8 +16,8 @@
 
 .trip-info{
     margin-top: 20px;
-    height:350px;
-    border:2px solid black
+    height:400px;
+ 
 }
 @media (max-width: 850px){
     .front_kiya{

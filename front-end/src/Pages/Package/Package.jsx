@@ -1,9 +1,26 @@
 import { Box, Button, Flex, Heading, Image, Input, Spacer, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Package/package.css"
 import {AiOutlineSearch} from "react-icons/ai"
 import {FaPeriscope} from "react-icons/fa"
+import axios from "axios"
+import Tour from './Tour'
+import { Link } from 'react-router-dom'
 const Package = () => {
+const [mindful,setMindful]=useState([])
+const [domestic,setDomestic]=useState([])
+const [international,setInternational]=useState([])
+
+useEffect(()=>{
+axios.get("http://localhost:8000/mindful").then(res=>setMindful(res.data))
+axios.get("http://localhost:8000/domestic").then(res=>setDomestic(res.data))
+axios.get("http://localhost:8000/international").then(res=>setInternational(res.data))
+
+console.log(mindful)
+
+},[])
+
+
   return (
     <div><div className="front_kiya">
     <Heading color="white" >Exclusive Tours & Holiday Packages</Heading>
@@ -14,7 +31,8 @@ const Package = () => {
     
     <div className="trip-kiya">
         <Heading>Tripoto's Mindful Retreats</Heading>
-        <div className='trip-info'></div>
+        <div className='trip-info'>
+        <Flex justifyContent="space-around">{mindful.map((ele)=><Link to={`/package/${ele.id}`}><Tour id={ele.id} title={ele.title} price={ele.price} location={ele.location} image={ele.main_image}/></Link>)}</Flex></div>
     </div>
 
      <div className="trip-kiya">
@@ -22,13 +40,13 @@ const Package = () => {
         <Text>Need help in planning a perfect travel experience in India? Tripoto has curated several travel packages covering some of the most popular holiday destinations for you!
 
 </Text>
-        <div className='trip-info'></div>
+        <div className='trip-info'> <Flex justifyContent="space-around">{domestic.map((ele)=><Link to={`/package/${ele.id}`}><Tour id={ele.id} title={ele.title} price={ele.price} location={ele.location} image={ele.main_image}/></Link>)}</Flex></div>
     </div>
     
     <div className="trip-kiya">
         <Heading>Explore These Trending International Tour Packages</Heading>
         <Text>Planning to travel abroad and wondering where to find the best international tour packages? From the cinematic landscapes of Switzerland to the glorious sunkissed beaches of Bali – our collection of handpicked travel packages would solve almost every traveller's dilemma.</Text>
-        <div className='trip-info'></div>
+        <div className='trip-info'> <Flex justifyContent="space-around">{international.map((ele)=><Link to={`/package/${ele.id}`}><Tour id={ele.id} title={ele.title} price={ele.price} location={ele.location} image={ele.main_image}/></Link>)}</Flex></div>
     </div>
     
     <div className="trip-kiya">

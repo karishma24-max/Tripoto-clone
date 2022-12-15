@@ -9,7 +9,7 @@ const Allroutes = () => {
         <Route />
         <Route/>
         <Route path="/package" element=<Package/>/>
-        <Route path="/singel" element=<Singlepackagepage/>/>
+        <Route path="/package/:id" element=<Singlepackagepage/>/>
         <Route/>
 
     </Routes></div>
