@@ -1,7 +1,7 @@
 
 
 import Allroutes from './Component/Allroutes';
-import { Ftr } from './Component/Ftr';
+import { Ftr } from './Component/Footer/Ftr';
 
 
 function App() {
