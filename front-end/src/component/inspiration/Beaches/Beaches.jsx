@@ -9,7 +9,6 @@ import {
   ModalOverlay,
   ModalContent
 } from "@chakra-ui/react";
-import { ChakraProvider } from "@chakra-ui/react";
 
 const Beaches = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -182,7 +181,7 @@ const Beaches = () => {
         </h1>
         <div className="threecard">
           <div>
-            <ChakraProvider>
+            
               <img
                 onClick={onOpen}
                 src="https://img.youtube.com/vi/jU7ZyViNu2U/sddefault.jpg"
@@ -203,10 +202,10 @@ const Beaches = () => {
                   ></iframe>
                 </ModalContent>
               </Modal>
-            </ChakraProvider>
+          
           </div>
           <div>
-            <ChakraProvider>
+            
               <img
                 onClick={onOpen}
                 src="https://img.youtube.com/vi/q43hYTqNFXc/sddefault.jpg"
@@ -227,10 +226,10 @@ const Beaches = () => {
                   ></iframe>
                 </ModalContent>
               </Modal>
-            </ChakraProvider>
+           
           </div>
           <div>
-            <ChakraProvider>
+          
               <img
                 onClick={onOpen}
                 src="https://img.youtube.com/vi/jVomAVZcuxM/sddefault.jpg"
@@ -251,7 +250,7 @@ const Beaches = () => {
                   ></iframe>
                 </ModalContent>
               </Modal>
-            </ChakraProvider>
+            
           </div>
         </div>
         <h1 className="Art_title">Find The Best Beach Tour Packages</h1>

@@ -1,9 +1,9 @@
 .carousel{
     padding-top: 3%;
 }
-.carousel img{
+/* .carousel img{
     width: 70%;
-}
+} */
 .react-multiple-carousel__arrow--left {
     left: 0;
 }
