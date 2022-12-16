@@ -10,7 +10,8 @@ const Allroutes = () => {
         <Route/>
         <Route path="/package" element={<Package/>}/>
         <Route path="/singel" element={<Singlepackagepage/>}/>
-        <Route path="/public_trip" element={<Publish />} />
+        <Route path="/public_trip" element={<Publish_trip1 />} />
+        <Route path="/comment" element={<See_comment />} />
         <Route/>
 
     </Routes></div>
