@@ -3,7 +3,7 @@ import { SimpleGrid,Text, Box,FormControl, Grid, GridItem, Image, Input,Button,F
 import triptologo from "./assets/triptologo.svg"
 import {FcLikePlaceholder} from "react-icons/fc"
 import {AiFillFacebook} from "react-icons/ai"
-import Des from '../Comment_box';
+import Des from './Component/Footer/Comment_box'
 import {FaPeriscope} from "react-icons/fa"
 import { Ftr } from './Ftr'
 import { useEffect } from 'react'
