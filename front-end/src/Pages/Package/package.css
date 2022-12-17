@@ -24,10 +24,8 @@
         margin:auto;
         justify-content: center;
 
-        margin-left: 150px;
+    margin-left: 150px;
         height: 1600px;
-        
-     
     }
 }
 @media (max-width: 850px){
