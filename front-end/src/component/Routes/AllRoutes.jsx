@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Route, Routes } from 'react-router-dom'
 import Beaches from "../inspiration/Beaches/Beaches";
 import Mountain from "../inspiration/Mountain/Mountain";
