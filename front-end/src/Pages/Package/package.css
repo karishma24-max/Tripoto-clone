@@ -19,7 +19,23 @@
     height:400px;
  
 }
+@media (max-width: 950px){
+    .trip-info{
+        margin:auto;
+        justify-content: center;
+
+        margin-left: 150px;
+        height: 1600px;
+        
+     
+    }
+}
 @media (max-width: 850px){
+    .trip-info{
+        margin-top: 20px;
+        height: 1600px;
+     
+    }
     .front_kiya{
         height:350Px;
         padding-top: 50px;
