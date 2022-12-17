@@ -1,6 +1,8 @@
 
 
 import {
+  Alert,
+  AlertIcon,
     Flex,
     Box,
     FormControl,
@@ -18,9 +20,12 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+  import Fcgoogle from "./Fcgoogle"
   
   export default function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
+    const [response,setResponse] = useState("");
+
     let obj={
       firstName: "",
       lastName:"",
@@ -29,12 +34,12 @@ import {
     }
     const [data,setData] = useState(obj);
   
-console.log(data)
+    console.log(data)
     const OnChange=(e)=>{
-
     const {value,name}=e.target;
    setData({...data,[name]:value})
     }
+
 
     const formSubmit = async (e)=>{
    e.preventDefault();
@@ -50,9 +55,13 @@ console.log(data)
    }).then((res)=>{
     return res.json()
    }).then((res)=>{
+    setResponse(res)
     console.log(res)
    })
 
+   setTimeout(()=>{
+    setResponse("")
+   },3000)
 
     }
 
@@ -60,12 +69,33 @@ console.log(data)
 
 
     return (
+
+
+      
       <Flex
         minH={'100vh'}
         align={'center'}
         justify={'center'}
         bg={useColorModeValue('gray.50', 'gray.800')}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+
+        {response.message=="Sucessfully created" ? (
+            <Alert bg="green" status="success">
+              <AlertIcon />
+              Sucessfully Registered Happy Journey
+            </Alert>
+          ) : response.message =="userRegistered already"? (
+            <Alert bg="red" status="warning">
+              <AlertIcon />
+              userRegistered already
+            </Alert>
+          ) :response.message =="Please enter full Details"? (
+            <Alert bg="yellow" status="warning">
+              <AlertIcon />
+              Please enter full Details
+            </Alert>
+          ): null}
+
           <Stack align={'center'}>
             <Heading fontSize={'4xl'} textAlign={'center'}>
               Sign up
@@ -82,6 +112,7 @@ console.log(data)
             <Stack spacing={4}>
               <HStack>
                 <Box>
+                  
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
                     <Input type="text" name='firstName' placeholder={"NAME"}  onChange={(e)=>OnChange(e)}/>
@@ -116,8 +147,8 @@ console.log(data)
               <Stack spacing={10} pt={2}>
                 <Button
                   loadingText="Submitting"
-                 type='submit'
-onClick={(e)=>formSubmit(e)}
+                  type='submit'
+                  onClick={(e)=>formSubmit(e)}
                   size="lg"
                   bg={'blue.400'}
                   color={'white'}

@@ -1,4 +1,5 @@
-import {
+import { Alert,
+  AlertIcon,
     Button,
     Checkbox,
     Flex,
@@ -9,9 +10,16 @@ import {
     Link,
     Stack,
     Image,
-    BeatLoader 
+   
   } from '@chakra-ui/react';
+  // import { FcGoogle } from "react-icons/fc";
+  import {Fcgoogle} from "./Fcgoogle"
+  import { Spinner } from '@chakra-ui/react'
+  import { useToast } from '@chakra-ui/react'
+  import {siginInwithGoogle} from "./firebase"
 import { useState } from 'react';
+
+ 
 //  import jwt from "jsonwebtoken"
 const auth={
     isAuh:false,
@@ -22,21 +30,22 @@ const auth={
 
 const [isAuth,setIsAuth] = useState(auth);
 const [load,setLoad]=useState(false);
+const [respo,setRespo]=useState("")
     let obj={
         email:"",
         password:""
       }
       const [data,setData] = useState(obj);
-    console.log(isAuth  )
+      console.log(isAuth  )
       console.log(data)
+
       const OnChange=(e)=>{
-  
       const {value,name}=e.target;
      setData({...data,[name]:value})
       }
   
       const formSubmit = async (e)=>{
-     e.preventDefault();
+      e.preventDefault();
       setLoad(true)
        fetch("http://localhost:8000/users/login",{
       headers: {
@@ -47,27 +56,52 @@ const [load,setLoad]=useState(false);
       body: JSON.stringify(data)
   
      }).then((res)=>{
+      setLoad(true)
       return res.json()
      }).then((res)=>{
+      setLoad(true)
       const {message,token,user } = res;
       console.log(res)
       if(message=="login succesfull"){
         setIsAuth({...isAuth,isAuth:true,user})
-        alert("SucessFull")
+        setLoad(false)
+        setRespo(res)
+        
         console.log( isAuth)
       }else if(message=="Invalid-Creadential"){
-             alert("Invalid-Creadential")
-      } 
-     })
+        setLoad(false)
+        setRespo(res)     
+        
+               } 
+           })
   
-     setLoad(false)
+           setLoad(false);
+
+           setTimeout(() => {
+            setRespo("")
+           }, 3000);
       }
 
     return (
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+        
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
+        
           <Stack spacing={4} w={'full'} maxW={'md'}>
             <Heading fontSize={'2xl'}>Sign in to your account</Heading>
+            {respo.message=="login succesfull"? (
+            <Alert bg="green" status="success">
+              <AlertIcon />
+              Login SucessFull Happy Journey
+            </Alert>
+          ) : respo.message =="Invalid-Creadential"? (
+            <Alert bg="red" status="warning">
+              <AlertIcon />
+             Check creadential 
+            </Alert>
+          ) :  null}
+
+          <Button  leftIcon={<Fcgoogle />} onClick={()=>siginInwithGoogle()}>Google login</Button>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
               <Input type="email" name='email' onChange={(e)=>OnChange(e)}/>
@@ -85,15 +119,9 @@ const [load,setLoad]=useState(false);
                 <Link color={'blue.500'}>Forgot password?</Link>
               </Stack>
 
-{load?<Button
-  isLoading
-  colorScheme='blue'
-  spinner={<BeatLoader size={8} color='white' />}
->
-  Click me
-</Button>:  <Button  type='submit' colorScheme={'blue'} variant={'solid'} onClick={(e)=>formSubmit(e)}>
-                Sign in
-              </Button>}
+{load==true ?<Spinner/>:  <Button  type='submit' colorScheme={'blue'} variant={'solid'} onClick={(e)=>formSubmit(e)}>
+                      Sign in
+                     </Button>}
 
             
             </Stack>
