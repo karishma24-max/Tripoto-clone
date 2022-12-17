@@ -11,7 +11,7 @@ const [mindful,setMindful]=useState([])
 const [domestic,setDomestic]=useState([])
 const [international,setInternational]=useState([])
 const [honeymoon,setHoneymoon]=useState([])
-const [searchcity,setSearchcity]=useState("")
+const [searchcity,setSearchcity] = useState("")
 const [tempid,setTempid]=useState(0)
 const navigate=useNavigate()
 useEffect(()=>{
@@ -24,24 +24,36 @@ axios.get("https://tripper-host.onrender.com/honeymoon").then(res=>setHoneymoon(
 
 },[])
 
-const handlesearch=()=>{
+const handlesearch=(e)=>{
+    let count=0
+    e.preventDefault()
     console.log(searchcity)
     console.log(honeymoon)
-honeymoon.map((ele)=> {if((ele.location)===searchcity){
-    setTempid(ele.id)
-}})
+honeymoon.map((ele)=> 
+{ if((ele.location)==searchcity){
+    console.log(ele)
+    navigate (`/packages/${ele.id}`)
+    count++
+}
+
+})
+if(count==0)
+{
+    alert("Sorry this package is not included ")
+}
 
 
-setInterval(()=>{
-    navigate (`/package/${tempid}`)
-},2000)
+
+// setInterval(()=>{
+//     navigate (`/packages/${tempid}`)
+// },2000)
 
 }
 
   return (
     <div><div className="front_kiya">
     <Heading color="white" >Exclusive Tours & Holiday Packages</Heading>
-        <Input  type="Search" borderRightRadius="0px" width={{lg:'550px' ,md:"400",sm:"200px"}} h="50px" bg="white" Placeholder="Search Packages for Destinations " mt="10px" onChange={(e)=>setSearchcity(e.target.value) }/> <Button ml="-6px" mb="5px" borderRightRadius="5px" borderRadius="0px" bg="white" height="50px" onClick={handlesearch}><AiOutlineSearch w="100px"/></Button>
+        <Input  type="Search" borderRightRadius="0px" width={{lg:'550px' ,md:"400",sm:"200px"}} h="50px" bg="white" Placeholder="Search Packages for Destinations " mt="10px" onChange={(e)=>setSearchcity(e.target.value) }/> <Button ml="-6px" mb="5px" borderRightRadius="5px" borderRadius="0px" bg="white" height="50px" onClick={(e)=>handlesearch(e)}><AiOutlineSearch w="100px"/></Button>
         <Flex display={{lg:"flex", md: 'box',sm:'box' }} justifyContent="center"><Button ml="10px" mt="20px" borderRadius="20px" color="cornflowerblue"  border="2px" borderColor='cornflowerblue'>Stay With Activities</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Destinations Packages</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Rajasthan</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="20px" borderRadius="20px">Manali</Button></Flex>
         <div><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="10px" borderRadius="20px">Himanchal</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="10px" borderRadius="20px">Uttarakhand</Button><Button color="cornflowerblue"  border="2px" borderColor='cornflowerblue' ml="10px" mt="10px" borderRadius="20px">Rishikesh</Button></div>
     </div>
@@ -50,7 +62,7 @@ setInterval(()=>{
         <Heading>Tripoto's Mindful Retreats</Heading>
         <div className='trip-info'>
         <Flex justifyContent="space-around" mt="10px" display={{lg:"flex", md: "box",sm:"box"}}>
-        {mindful.map((ele)=><Link to={`/package/${ele.id}`}>
+        {mindful.map((ele)=><Link to={`/packages/${ele.id}`}>
         <Tour key={ele.id} id={ele.id} title={ele.title} price={ele.price} location={ele.location} image={ele.main_image}/>
         </Link>)}</Flex></div>
     </div>
@@ -61,14 +73,14 @@ setInterval(()=>{
 
 </Text>
         <div className='trip-info'> <Flex justifyContent="space-around" mt="10px" display={{lg:"flex", md: 'box',sm:'box' }}>
-        {domestic.map((ele)=><Link to={`/package/${ele.id}`}><Tour key={ele.id} id={ele.id} title={ele.title} price={ele.price} location={ele.location} image={ele.main_image}/></Link>)}</Flex></div>
+        {domestic.map((ele)=><Link to={`/packages/${ele.id}`}><Tour key={ele.id} id={ele.id} title={ele.title} price={ele.price} location={ele.location} image={ele.main_image}/></Link>)}</Flex></div>
     </div>
     
     <div className="trip-kiya">
         <Heading>Explore These Trending International Tour Packages</Heading>
         <Text>Planning to travel abroad and wondering where to find the best international tour packages? From the cinematic landscapes of Switzerland to the glorious sunkissed beaches of Bali – our collection of handpicked travel packages would solve almost every traveller's dilemma.</Text>
         <div className='trip-info'> <Flex justifyContent="space-around" mt="10px" display={{lg:"flex", md: 'box',sm:'box' }}>
-        {international.map((ele)=><Link to={`/package/${ele.id}`}><Tour key={ele.id} id={ele.id} title={ele.title} price={ele.price} location={ele.location} image={ele.main_image}/></Link>)}</Flex></div>
+        {international.map((ele)=><Link to={`/packages/${ele.id}`}><Tour key={ele.id} id={ele.id} title={ele.title} price={ele.price} location={ele.location} image={ele.main_image}/></Link>)}</Flex></div>
     </div>
     
     <div className="trip-kiya">

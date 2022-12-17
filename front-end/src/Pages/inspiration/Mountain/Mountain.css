@@ -1,0 +1,163 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#divafterheader{
+    width: 85%;
+    margin: auto;
+    margin-top: 2%;
+}
+#bread{
+    margin-bottom: 2%;
+}
+.title{
+    font-family: circularairpro-bold, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2.3rem;
+    line-height: 2.4rem;
+    color: #333333;
+}
+#pbelowtitle{
+    font-family: Georgia, serif;
+    font-weight: 400;
+    color:#9197a3;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    margin: 1rem 0px;
+}
+.Art_title{
+    font-family: circularairpro-bold, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    color: #333333;
+    margin: 2.5rem 0rem 1rem 0rem;
+}
+.article_body{
+    font-family: Georgia, serif;
+    font-weight: 400;
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+.threecard{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-row: 1fr;
+    gap: 3%;
+    margin-bottom: 2rem;
+}
+.threecard>div>img{
+    border-radius: 5px;
+}
+.threecard>div>h4{
+    font-family: circularairpro-bold, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
+}
+.ninedata{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-row: repeat(3,1fr);
+    gap: 3%;
+    margin-bottom: 2rem;
+}
+.ninedata>div>img{
+    border-radius: 5px;
+    height: 15rem;
+    width: 25rem;
+}
+.ninedata>div>h4{
+    font-family: circularairpro-bold, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
+}
+.eightdata{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-row: repeat(3,1fr);
+    gap: 3%;
+    margin-bottom: 2rem;
+}
+.eightdata>div>img{
+    border-radius: 5px;
+    height: 12rem;
+    width: 15rem;
+}
+.eightdata>div>h4{
+    font-family: circularairpro-bold, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
+}
+.twelvecard{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-row: repeat(4,1fr);
+    gap: 3%;
+    margin-bottom: 2rem;
+}
+.twelvecard>div>img{
+    border-radius: 5px;
+    height:13rem;
+}
+.twelvecard>div>h4{
+    font-family: circularairpro-bold, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
+}
+.twelvecard>div>p{
+    font-family:-apple-system, helvetica, arial, sans-serif;;
+    font-weight: 700;
+    color: #ff6633;
+    font-size: 0.7rem;
+    line-height: 0.9rem;
+    margin-top: 0.5rem;
+}
+@media only screen and (max-width: 900px) {
+    .ninedata{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row: auto;
+        gap: 3rem;
+        margin-bottom: 7rem;
+    }
+    .ninedata>div>img{
+        border-radius: 5px;
+        height: auto;
+        width: auto;
+    }
+    .threecard{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row: auto;
+        gap: 3%;
+        margin-bottom: 7rem;
+    }
+    .eightdata{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row: auto;
+        gap: 3rem;
+        margin-bottom: 7rem;
+    }
+    .eightdata>div>img{
+        border-radius: 5px;
+        height: auto;
+        width: auto;
+    }
+    }

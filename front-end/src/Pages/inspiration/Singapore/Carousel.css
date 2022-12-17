@@ -1,0 +1,12 @@
+.carousel{
+    padding-top: 3%;
+}
+/* .carousel img{
+    width: 70%;
+} */
+.react-multiple-carousel__arrow--left {
+    left: 0;
+}
+.carousel button{
+    justify-content: space-between;
+}
