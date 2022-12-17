@@ -4,8 +4,6 @@ import { Box, Image, SimpleGrid, VStack } from '@chakra-ui/react'
 import React from 'react'
 import{FaInstagram,FaFacebookSquare,FaTwitterSquare,FaYoutube,FaPinterestSquare,FaSatelliteDish} from "react-icons/fa"
 
-
-
 export const Ftr = () => {
   return (
 
