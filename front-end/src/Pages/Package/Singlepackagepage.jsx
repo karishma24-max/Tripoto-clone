@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Input, Select, Spacer, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Image, Input, Select, Spacer, Text, useToast } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Carousel } from 'react-responsive-carousel';
@@ -8,11 +8,13 @@ import { AiTwotonePhone} from "react-icons/ai"
 import "../Package/singlepackage.css"
 
 const Singlepackagepage = () => {
-     const [initprice,setinitPrice]=useState(0)
+     
     const params= useParams()
+    const toast = useToast()
     const id=params.id
     console.log(params)
     const [singleji,setSingleji]=useState([])
+    
     const init={
         name:"",
         email:"",
@@ -30,17 +32,8 @@ const Singlepackagepage = () => {
        setData({...data,[name]:value})
 
     }
-    
-    const handlesubmit=(e)=>{
-        e.preventDefault()
-        console.log(1)
-        axios.post("http://localhost:8000/post",data)
-        .then(res=>console.log(res))
-        .catch(e=>console.log(e))
-        setinitPrice((+[data.adult])*singleji.price)
-
-    }
-    
+  
+     
     useEffect(()=>{
         axios.get(`https://tripper-host.onrender.com/mindful/${id}`)
         .then(res=>setSingleji(res.data))
@@ -64,9 +57,36 @@ const Singlepackagepage = () => {
             .then(res=>setSingleji(res.data))
             console.log(singleji.image1)
             },[id])
+            
+            const [initprice,setinitPrice]=useState(0)
+              
+    const handlesubmit=(e)=>{
+        e.preventDefault()
+        console.log(1)
+        axios.post("http://localhost:8000/post",data)
+        .then(res=>console.log(res))
+        .catch(e=>console.log(e))
+        toast({
+            title: 'Congratulations,Your trip is Booked ',
+            position:'top',
+            description:'Payment will be proceed after confirmation call ',
+           
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+          })
+
+    }
+    useEffect(()=>{
+        let priceji=data.adult
+        if(priceji){
+            setinitPrice((+[data.adult])*singleji.price)
+        }
+       
+    },[data.adult])
   return (
     <div className='single-kiya'>
-    <Flex > <Box ml="100px" mb="100px"><Box color="black" w="90%" h="900px">
+    <Flex  display={{lg:"flex",md:"box",sm:"box"}}> <Box ml="100px" mb="100px"><Box color="black" w="90%" h="900px">
     <Box ml="100px" mt="30px" bg="cream">  
      <Carousel autoPlay  showThumbs={false}>
     
@@ -145,12 +165,13 @@ const Singlepackagepage = () => {
     <Flex textAlign="center">
     
     <form onSubmit={handlesubmit}>
-        <Input w="280px" mt="10px" border="2px" placeholder='Email' name="email" onChange={handlechange} />
-        <Input  w="280px" mt="10px" border="2px" placeholder='Full Name' name="name" onChange={handlechange}/>
-        <Input w="280px" mt="10px" border="2px" placeholder='Contact-Number' name="contact" onChange={handlechange}/>
-        <Input w="280px" mt="10px" border="2px" placeholder='Departure-City' name="city" onChange={handlechange}/>
-
+        <Input w="280px" mt="10px" border="2px" type="email" placeholder='Email' name="email" onChange={handlechange} />
+        <Input  w="280px" mt="10px" border="2px" type="string" placeholder='Full Name' name="name" onChange={handlechange}/>
+        <Input w="280px" mt="10px" border="2px" type="number" placeholder='Contact-Number' name="contact" onChange={handlechange}/>
+        <Input w="280px" mt="10px" border="2px" type="string" placeholder='Departure-City' name="city" onChange={handlechange}/>
+<div className='select_role'>
         <Select w="290px" mt="10px" border="2px" ml="10px" pr="8px" placeholder='Select Adults' color="grey" name="adult" onChange={handlechange}>
+        <option value="1" name="adult">1</option>
         <option value="2" name="adult">2</option>
         <option value="3" name="adult">3</option>
         <option value="4" name="adult">4</option></Select>
@@ -164,6 +185,7 @@ const Singlepackagepage = () => {
         <option value="Standard room">Standard Room</option>
         <option value="Dorm beds x1">Dorm Beds x1</option>
         <option value="Deluxe room x2">Deluxe room x2</option></Select>
+        </div>
         <Input w="280px" mt="10px" border="2px" ml="5px"  type="Date" color="grey" name="date" onChange={handlechange}/>
 
        <Flex w="80%" m="auto" mt="20px"> <Text fontWeight="bold">Amount :</Text><Spacer/><Text fontSize="14px" mt="10px" color="grey">Starting from ₹ <Text fontWeight="bold" color="crimson">{initprice}</Text></Text></Flex>

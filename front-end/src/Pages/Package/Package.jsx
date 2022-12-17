@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Input, Spacer, Text } from '@chakra-ui/react'
+import { Alert, AlertIcon, Box, Button, Flex, Heading, Image, Input, Spacer, Text, Toast, useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import "../Package/package.css"
 import {AiOutlineSearch} from "react-icons/ai"
@@ -8,6 +8,7 @@ import Tour from './Tour'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 const Package = () => {
 const [mindful,setMindful]=useState([])
+const toast = useToast()
 const [domestic,setDomestic]=useState([])
 const [international,setInternational]=useState([])
 const [honeymoon,setHoneymoon]=useState([])
@@ -39,7 +40,15 @@ honeymoon.map((ele)=>
 })
 if(count==0)
 {
-    alert("Sorry this package is not included ")
+    toast({
+        title: 'Sorry,this package is not included yet',
+        position:'top',
+       bg:'red',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      })
+
 }
 
 
