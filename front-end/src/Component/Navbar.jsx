@@ -13,9 +13,12 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ShowContext } from "../Context/ShowContext"
 import styles from "./Navbar.module.css";
-
+ import { AuthContext } from "../PrivateRoute/AuthContext";
+ 
 export function Navbar() {
   // const [color, setColor] = useState(false);
+  const {isAuthc,setIsAuthc}=useContext(AuthContext)
+   
   const { show, setShow } = useContext(ShowContext);
  
 
@@ -80,7 +83,7 @@ export function Navbar() {
             <MenuItem>Explore More</MenuItem>
           </MenuList>
         </Menu>
-        <NavLink to="#">Forum</NavLink>
+       {isAuthc.user=="admin"?<NavLink to="/admin">Admin</NavLink>:""} 
         <NavLink to="/packages">Packages</NavLink>
         <Menu>
           <MenuButton as={Box}>Publish Trip </MenuButton>

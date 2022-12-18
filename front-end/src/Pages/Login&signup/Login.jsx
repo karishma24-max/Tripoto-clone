@@ -18,36 +18,42 @@ import { Alert,
   import { useToast } from '@chakra-ui/react'
   import {siginInwithGoogle} from "./firebase"
 import { useState } from 'react';
-
- 
+import { useContext } from 'react';
+  import { ShowContext } from '../../Context/ShowContext';
+  import { AuthContext } from '../../PrivateRoute/AuthContext';
+import { Navigate } from 'react-router-dom';
 //  import jwt from "jsonwebtoken"
 const auth={
-    isAuh:false,
+    isAuth:false,
     user:" "
 }
 
   export default function Login() {
-
+    const {isAuthc,setIsAuthc}=useContext(AuthContext)
+     
 const [isAuth,setIsAuth] = useState(auth);
+console.log(isAuthc)
 const [load,setLoad]=useState(false);
-const [respo,setRespo]=useState("")
+const [respo,setRespo]=useState("");
+
     let obj={
         email:"",
         password:""
       }
       const [data,setData] = useState(obj);
-      console.log(isAuth  )
+     
       console.log(data)
 
       const OnChange=(e)=>{
       const {value,name}=e.target;
-     setData({...data,[name]:value})
+       setData({...data,[name]:value});
+   
       }
   
       const formSubmit = async (e)=>{
       e.preventDefault();
       setLoad(true)
-       fetch("http://localhost:8000/users/login",{
+       fetch("https://backend-ergaurav13.onrender.com/users/login",{
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -63,15 +69,17 @@ const [respo,setRespo]=useState("")
       const {message,token,user } = res;
       console.log(res)
       if(message=="login succesfull"){
-        setIsAuth({...isAuth,isAuth:true,user})
+        setIsAuth({...auth,isAuth:true,user});
+       
         setLoad(false)
         setRespo(res)
-        
-        console.log( isAuth)
+        setIsAuthc({...isAuthc,isAuth:true,user});
+        // console.log( auth)
       }else if(message=="Invalid-Creadential"){
         setLoad(false)
+        setIsAuthc({...isAuthc,isAuth:false,user:""});
         setRespo(res)     
-        
+       
                } 
            })
   
@@ -80,6 +88,10 @@ const [respo,setRespo]=useState("")
            setTimeout(() => {
             setRespo("")
            }, 3000);
+      }
+
+      if(isAuthc.isAuth){
+        return <Navigate to="/"/>
       }
 
     return (

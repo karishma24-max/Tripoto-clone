@@ -53,4 +53,13 @@
         text-align: center;
     
     }
+    .trip-info{
+        margin:auto;
+        justify-content: center;
+
+    margin-left: 0px;
+        height: 1600px;
+    }
 }
+   
+       

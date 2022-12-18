@@ -16,12 +16,12 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    
+     
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+  import { Link } from 'react-router-dom';
   import Fcgoogle from "./Fcgoogle"
-import { Link } from 'react-router-dom';
   
   export default function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +45,7 @@ import { Link } from 'react-router-dom';
     const formSubmit = async (e)=>{
    e.preventDefault();
     
-    fetch("http://localhost:8000/users/signup",{
+    fetch("https://backend-ergaurav13.onrender.com/users/signup",{
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -162,7 +162,7 @@ import { Link } from 'react-router-dom';
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user <Link to ="/login" style={{color:"#2f9bdb"}}>Login</Link>
+                  Already a user? <Link to="/login" color={'blue.400'}>Login</Link>
                 </Text>
               </Stack>
             </Stack>

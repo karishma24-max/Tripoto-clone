@@ -20,16 +20,23 @@ const Singlepackagepage = () => {
         email:"",
         contact:"",
         city:"",
-         adult:"",
-         children:"",
-         room:"",
+         adult: "233",
+         children:"3232",
+         room:"23232",
          date:""
     }
 
     const [data,setData]=useState(init)
     const handlechange=(e)=>{
        const {value,name}= e.target
-       setData({...data,[name]:value})
+
+       if(name=="room"|| name=="children"|| name=="adult"){
+     let  value1=+value;   
+         setData({...data,[name]:value1})
+       }else{
+        setData({...data,[name]:value})
+       }
+        
 
     }
   
@@ -62,8 +69,24 @@ const Singlepackagepage = () => {
               
     const handlesubmit=(e)=>{
         e.preventDefault()
-        console.log(1)
-        axios.post("http://localhost:8000/post",data)
+        console.log(data)
+
+        // fetch("https://backend-ergaurav13.onrender.com/users/querry",{
+        //     headers: {
+        //       'Accept': 'application/json',
+        //       'Content-Type': 'application/json'
+        //     },
+        //     method: "POST",
+        //     body: JSON.stringify(data)
+        
+        //    }).then((res)=>{
+        //    console.log(res)
+        //    return  res.json()
+        //    }).then((res)=>{
+           
+        //     console.log(res)
+        //    })
+        axios.post("https://backend2-ergaurav13.onrender.com/users/querry",data)
         .then(res=>console.log(res))
         .catch(e=>console.log(e))
         toast({
@@ -165,10 +188,10 @@ const Singlepackagepage = () => {
     <Flex textAlign="center">
     
     <form onSubmit={handlesubmit}>
-        <Input w="280px" mt="10px" border="2px" type="email" placeholder='Email' name="email" onChange={handlechange} />
-        <Input  w="280px" mt="10px" border="2px" type="string" placeholder='Full Name' name="name" onChange={handlechange}/>
+        <Input w="280px" mt="10px" border="2px" type="text" placeholder='Email' name="email" onChange={handlechange} />
+        <Input  w="280px" mt="10px" border="2px" type="text" placeholder='Full Name' name="name" onChange={handlechange}/>
         <Input w="280px" mt="10px" border="2px" type="number" placeholder='Contact-Number' name="contact" onChange={handlechange}/>
-        <Input w="280px" mt="10px" border="2px" type="string" placeholder='Departure-City' name="city" onChange={handlechange}/>
+        <Input w="280px" mt="10px" border="2px" type="text" placeholder='Departure-City' name="city" onChange={handlechange}/>
 <div className='select_role'>
         <Select w="290px" mt="10px" border="2px" ml="10px" pr="8px" placeholder='Select Adults' color="grey" name="adult" onChange={handlechange}>
         <option value="1" name="adult">1</option>
@@ -181,12 +204,12 @@ const Singlepackagepage = () => {
         <option value="3">3</option>
         <option value="4">4</option></Select>
         <Select w="290px" mt="10px" border="2px" ml="10px" pr="8px" placeholder='Select Type of room' color="grey" name="room"  onChange={handlechange}>
-        <option value="Deluxe room">Deluxe Room</option>
-        <option value="Standard room">Standard Room</option>
-        <option value="Dorm beds x1">Dorm Beds x1</option>
-        <option value="Deluxe room x2">Deluxe room x2</option></Select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option></Select>
         </div>
-        <Input w="280px" mt="10px" border="2px" ml="5px"  type="Date" color="grey" name="date" onChange={handlechange}/>
+        <Input w="280px" mt="10px" border="2px" ml="5px"  type="text" color="grey" name="date" onChange={handlechange}/>
 
        <Flex w="80%" m="auto" mt="20px"> <Text fontWeight="bold">Amount :</Text><Spacer/><Text fontSize="14px" mt="10px" color="grey">Starting from ₹ <Text fontWeight="bold" color="crimson">{initprice}</Text></Text></Flex>
 

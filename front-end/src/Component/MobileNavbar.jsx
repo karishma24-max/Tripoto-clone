@@ -60,11 +60,17 @@ import { useContext, useState } from "react";
               gap="20px"
               color={"white"}
             >
+             <NavLink to="/signup">Sign in</NavLink>
               <NavLink to="/singapore" isOpen={onClose}>
                 Visit Singapore
               </NavLink>
+             
               <NavLink to="/beaches">Beaches</NavLink>
+              
+              <NavLink to="/mountain">Mountain</NavLink>
+             
               <NavLink to="/packages">Packages</NavLink>
+              <NavLink to="/tripper">Publish trip</NavLink>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

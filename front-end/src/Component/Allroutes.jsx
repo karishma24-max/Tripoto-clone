@@ -10,12 +10,16 @@ import Tripper from "../Pages/Publish/Publish_trip1"
 import Login from "../Pages/Login&signup/Login"
 import SignIn from "../Pages/Login&signup/SignIn"
 import SeeComment from "../Pages/Publish/SeeComment"
-
+import { Admin } from '../Pages/Admin/Admin'
+import { Listofusers } from '../Pages/Admin/Listofusers'
+import { AdminQuerry } from '../Pages/Admin/AdminQuerry'
+import { SingleUser } from '../Pages/Admin/SingleUser'
+import Private from './Private'
 const Allroutes = () => {
   return (
     <div><Routes>
     <Route path="/" element={<Home/>}/>
-        <Route path='/singapore' element={<Singapore/>}/>
+        <Route path='/singapore' element={<Private> <Singapore/></Private>}/>
             <Route path='/beaches' element={<Beaches/>}/>
             <Route path='/mountain' element={<Mountain/>}/>
         <Route path="/packages" element={<Package/>}/>
@@ -25,7 +29,10 @@ const Allroutes = () => {
         <Route path="/comment" element={<SeeComment/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup"  element={<SignIn/>}/>
-
+        <Route path="/admin" element={<Admin/>} />
+        <Route path="/Listofusers" element={<Listofusers />} />
+        <Route path="/adminQuerry" element={<AdminQuerry  />} />
+        <Route path="Listofusers/:id" element={<SingleUser />} />
     </Routes></div>
   )
 }
