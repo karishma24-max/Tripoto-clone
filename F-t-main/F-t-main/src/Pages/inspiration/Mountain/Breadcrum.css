@@ -1,0 +1,82 @@
+.carousel{
+    padding-top: 0%;
+}
+
+.react-multiple-carousel__arrow--left {
+    left: 0;
+}
+.carousel button{
+    justify-content: space-between;
+}
+.cardInd{
+    width: 90%;
+}
+
+.cardInd>img{
+    border-radius: 5px;
+}
+.cardInd>h2{
+    font-family: circularairpro-bold, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+.cardInd h4{
+    font-family: -apple-system, helvetica, arial, sans-serif;
+    font-weight: 700;
+    color: #359391;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+}
+.duration{
+    color: white;
+    background-color: teal;
+    border-radius: 20px;
+    padding: 0.1rem 0.5rem;
+    font-family: -apple-system, helvetica, arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.7rem;
+    line-height: 1rem;
+}
+.quote{
+    color: teal;
+    background-color: white;
+    border: 1px solid teal;
+    border-radius: 0.3rem;
+    padding: 0.1rem 0.5rem;
+    font-family: -apple-system, helvetica, arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+.price{
+    font-family: circularairpro-bold, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #333333;
+    font-size: 1rem;
+}
+.priceP{
+    margin-left:5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    color:grey;
+    font-size: 0.8rem;
+}
+.partner{
+    display: flex;
+    margin:0.5rem 0 2rem 0;
+}
+.partner>p{
+    font-family: -apple-system, helvetica, arial, sans-serif;
+    font-weight: 400;
+    color:#333333;
+    font-size: 1rem;
+    line-height: 2rem;
+    margin-left: 0.3rem;
+}
+.partner>img{
+    /* border: 1px solid red; */
+    width: 2rem;
+    border-radius: 50%;
+}
