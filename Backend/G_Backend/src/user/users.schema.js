@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const randtoken = require("rand-token");
 const usersSchema = new mongoose.Schema(
   {
-    fullName: {
-      type: String,
-      trim: true,
-    },
     firstName: {
       type: String,
       trim: true,
@@ -16,24 +12,19 @@ const usersSchema = new mongoose.Schema(
       trim: true,
       required: true,
     },
-    email:{
+    email: {
       type: String,
       unique: true,
       required: true,
       trim: true,
     },
-    idToken: {
-      type: String,
-      default: () => randtoken.generate(64),
+     role:{
+        type:String,enum:["user","admin"],
+        default:"user"
     },
     password: {
       type: String,
       required: true,
-    },
-
-    photoURL: {
-      type: String,
-      default: "",
     },
   },
   { versionKey: false }
