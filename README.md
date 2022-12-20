@@ -7,11 +7,11 @@ It is a collaborative project which is done with the help of 5 members in a week
 ## The website contains several functionality, below is the demo pictures of the website pages along with the descripton of each page that has been build by me and my team members.
 
 <h2>Features :-</h2>
-<h4> Signup & Login </h4>:- Authentication
-<h4> Description page </h4> :- You can see the desciption of any trip or what kind of features  websites is providing for booking  any trip
-<h4> Package page </h4> :-You can search about any trip.
-<h4>Singeluser Page</h4>:- You can book any trip.
-<h4> Publish Page</h4>:- You can publish any trip
+<h4> Signup & Login :- </h4> Authentication
+<h4> Description page :- </h4>  You can see the desciption of any trip or what kind of features  websites is providing for booking  any trip
+<h4> Package page :- </h4> You can search about any trip.
+<h4>Singeluser Page :-</h4> You can book any trip.
+<h4> Publish Page :-</h4> You can publish any trip
 
 
 # 1) Landing Page:
