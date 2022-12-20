@@ -7,6 +7,13 @@ It is a collaborative project which is done with the help of 5 members in a week
 ## The website contains several functionality, below is the demo pictures of the website pages along with the descripton of each page that has been build by me and my team members.
 
 
+contributors:
+1.Karishma Chauhan 
+2.Gaurav kumar
+3 Shekhar
+4.Nidhi Kumari
+5.Kiran bhill
+
 
 # 1) Landing Page:
 ![Screenshot (388)](https://user-images.githubusercontent.com/101395093/208605136-be0767fe-2339-4d70-a051-11e9fabe11af.png)
