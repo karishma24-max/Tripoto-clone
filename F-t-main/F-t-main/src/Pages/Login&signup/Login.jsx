@@ -74,6 +74,8 @@ const [respo,setRespo]=useState("");
         setLoad(false)
         setRespo(res)
         setIsAuthc({...isAuthc,isAuth:true,user});
+        localStorage.setItem("userData",JSON.stringify(data));
+        // window.location.reload()
         // console.log( auth)
       }else if(message=="Invalid-Creadential"){
         setLoad(false)

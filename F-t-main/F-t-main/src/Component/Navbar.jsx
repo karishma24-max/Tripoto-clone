@@ -1,16 +1,20 @@
 import {
   Box,
+  Flex,
   Image,
   Input,
   Menu,
   MenuButton,
+  MenuDivider,
   MenuItem,
   MenuList,
+  Button,
   Popover,
+  Avatar,
 } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { ShowContext } from "../Context/ShowContext"
 import styles from "./Navbar.module.css";
  import { AuthContext } from "../PrivateRoute/AuthContext";
@@ -20,7 +24,14 @@ export function Navbar() {
   const {isAuthc,setIsAuthc}=useContext(AuthContext)
    
   const { show, setShow } = useContext(ShowContext);
- 
+  const [user,setUser]=useState([]);
+  const navigate = useNavigate();
+  useEffect(()=>{
+    const u = JSON.parse(localStorage.getItem('userData'));
+    setUser(u)
+  
+  },[])
+  console.log(user)
 
   const changeColor = () => {
     if (window.scrollY > 100) {
@@ -100,7 +111,31 @@ export function Navbar() {
         
         {/* <NavLink>Publish Trip</NavLink> */}
         {/* <NavLink to="/admin">Admin</NavLink> */}
-        <NavLink to="/signup">Sign in</NavLink>
+        {/* <NavLink to="/signup">Sign in</NavLink> */}
+        {isAuthc.isAuth ?          <Flex alignItems={'center'}>
+            <Menu>
+              <MenuButton
+                as={Button}
+                rounded={'full'}
+                variant={'link'}
+                cursor={'pointer'}
+                minW={0}>
+                <Avatar
+                  size={'sm'}
+                  src={
+                    'https://storage.needpix.com/rsynced_images/head-659652_1280.png'
+                  }
+                />
+              </MenuButton>
+              <MenuList color={"black"}>
+                <MenuItem onClick={() => navigate('/Booking')} >My Bookings</MenuItem>
+                <MenuDivider />
+                <MenuItem onClick={()=> window.location.reload()}>LogOut</MenuItem>
+              </MenuList>
+            </Menu>
+          </Flex>
+:<NavLink to="/signup">Sign in</NavLink>} 
+
       </Box>
     </Box>
   );

@@ -3,7 +3,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { AiTwotonePhone} from "react-icons/ai"
 import "../Package/singlepackage.css"
 
@@ -14,7 +14,7 @@ const Singlepackagepage = () => {
     const id=params.id
     console.log(params)
     const [singleji,setSingleji]=useState([])
-    
+    const navigate = useNavigate();
     const init={
         name:"",
         email:"",
@@ -89,15 +89,18 @@ const Singlepackagepage = () => {
         axios.post("https://backend2-ergaurav13.onrender.com/users/querry",data)
         .then(res=>console.log(res))
         .catch(e=>console.log(e))
-        toast({
-            title: 'Congratulations,Your trip is Booked ',
-            position:'top',
-            description:'Payment will be proceed after confirmation call ',
+        // toast({
+        //     title: 'Congratulations,Your trip is Booked ',
+        //     position:'top',
+        //     description:'Payment will be proceed after confirmation call ',
            
-            status: 'success',
-            duration: 3000,
-            isClosable: true,
-          })
+        //     status: 'success',
+        //     duration: 3000,
+        //     isClosable: true,
+        //   })
+        localStorage.setItem("BookingData",JSON.stringify(data));
+        localStorage.setItem("price",initprice)
+        navigate("/Booking")
 
     }
     useEffect(()=>{
