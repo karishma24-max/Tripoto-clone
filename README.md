@@ -3,7 +3,7 @@ Tripoto is social travel platform to share and discover travel experiences, stor
 <h2>Tripper Traveller</h2> 
 It is a collaborative project which is done with the help of 5 members in a week.
 <h2>Team members:- Karishma Chauhan,Shekhar Suman ,Kiran Bhil ,Gaurav Kumar ,Nidhi</h2> 
-<h4> Live Link :  https://chic-syrniki-568fa1.netlify.app/</h4>
+<h4> Live Link :  https://tripoto-clone-mern.netlify.app/</h4>
 ## The website contains several functionality, below is the demo pictures of the website pages along with the descripton of each page that has been build by me and my team members.
 
 <h2>Features :-</h2>
