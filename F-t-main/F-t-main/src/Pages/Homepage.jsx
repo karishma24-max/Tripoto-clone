@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Stack,
   Flex,
@@ -15,12 +15,59 @@ import {
   Spacer,
   Avatar,
   Divider,
+  useToast,
 } from '@chakra-ui/react';
 import{BiSearch, BiMap} from "react-icons/bi"
 import{MdVerified} from "react-icons/md"
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function Homepage() {
+  const [mindful,setMindful]=useState([])
+  const toast = useToast()
+  const [domestic,setDomestic]=useState([])
+  const [international,setInternational]=useState([])
+  const [honeymoon,setHoneymoon]=useState([])
+  const [searchcity,setSearchcity] = useState("")
+  const navigate=useNavigate()
+
+  useEffect(()=>{
+    axios.get("https://tripper-host.onrender.com/mindful").then(res=>setMindful(res.data))
+    axios.get("https://tripper-host.onrender.com/domestic").then(res=>setDomestic(res.data))
+    axios.get("https://tripper-host.onrender.com/international").then(res=>setInternational(res.data))
+    axios.get("https://tripper-host.onrender.com/honeymoon").then(res=>setHoneymoon(res.data))
+    
+    
+    
+    },[])
+  
+  const handlesearch=(e)=>{
+      let count=0
+      e.preventDefault()
+      console.log(searchcity)
+      console.log(honeymoon)
+  honeymoon.map((ele)=> 
+  { if((ele.location)==searchcity){
+      console.log(ele)
+      navigate (`/packages/${ele.id}`)
+      count++
+  }
+  
+  })
+  if(count==0)
+  {
+      toast({
+          title: 'Sorry,this package is not included yet',
+          position:'top',
+         bg:'red',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        })
+  }
+}
+  
   return (
     // <Container maxW='full'>
     <div>
@@ -48,8 +95,8 @@ function Homepage() {
           </Text>
         <Stack spacing={4}>
         <InputGroup backgroundColor={'white'} width={{lg:'550px' ,md:"400px",sm:"300px"}}>
-          <Input size='lg' placeholder='Search for itineraries, destination, hotels or activities' />
-          <InputRightElement size='lg' children={<Icon as={BiSearch} boxSize={6}/>} />
+          <Input size='lg' placeholder='Search for itineraries, destination, hotels or activities' onChange={(e)=>setSearchcity(e.target.value) }/>
+          <InputRightElement onClick={(e)=>handlesearch(e)} size='lg' children={<Icon as={BiSearch} boxSize={6}/>} />
         </InputGroup>
 
         </Stack>

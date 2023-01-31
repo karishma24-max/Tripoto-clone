@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SimpleGrid,Text, Box,Button, Grid, GridItem, Image, Input,ButtonGroup,IconButton} from '@chakra-ui/react'
+import { SimpleGrid,Text, Box,Button, Grid, GridItem, Image, Input,ButtonGroup,IconButton, Flex, useBreakpointValue} from '@chakra-ui/react'
 import Nidhi from "../../Component/assests/Nidhi.jpeg"
 import {SlCalender} from "react-icons/sl"
 import {HiOutlineCurrencyRupee} from "react-icons/hi"
@@ -21,12 +21,16 @@ const clickHandle=()=>{
 
   }
   return (
+    <>
     <Grid gridTemplateColumns='70% 30%' gap={6} h="auto" w="70%" m="auto" >
     <GridItem w='100%' h='500' >
     <SimpleGrid columns={1} spacing={1}>
     <Box mt={2} ml={2}>
-        <Image src={Nidhi}/>
-        </Box >
+      <Link to="/">
+        <Image src={Nidhi} alt="anc"/>
+      </Link>
+    </Box >
+
   <Box height='30px' mt={4}>
   <Input  onChange={changeHandle} placeholder='Add An Impressive Title To Your Trip'/>
   </Box>
@@ -37,15 +41,25 @@ const clickHandle=()=>{
   <Box height='30px' mt={4}>
   <Input placeholder='Tell a story' h={100} border={"none"}/>
   </Box>
+  <br/>
+  <br/>
+  <br/>
+  <Box marginLeft={60}>
+
+  <Link ml={80} to="/comment"><Button colorScheme='blue' m="auto" onClick={clickHandle} ml={93} border="none" mt={4}>Save and Preview</Button> 
+
+</Link>
+</Box>
   <Box  height='350px'></Box>
   
+
 </SimpleGrid>
 
     </GridItem>
     <SimpleGrid>
 
 
-<Grid w='100%'  mt={0}   border="1px solid grey" gridTemplateRows="repeate(1,1fr)">
+{/* <Grid w='100%'  mt={0}   border="1px solid grey" gridTemplateRows="repeate(1,1fr)">
 
 <Box  className='trip_status' w='90%' border="0px solid grey" m="auto" mt={5} mb={3} borderRadius={5} bg='blue.50'>
 
@@ -112,14 +126,41 @@ const clickHandle=()=>{
 
 </Box>
 </GridItem>
-</Grid>
- <Link to="/comment"><Button color='blue' m="auto" onClick={clickHandle} ml={93} border="none" mt={4}>Save and Preview</Button> 
+</Grid> */}
+<br/>
+<br/>
 
-</Link>
-</SimpleGrid>
+<Image borderRadius={4} src='https://cdn1.tripoto.com/media/filter/tst/img/1339961/Image/1613732417_2_10.jpg' alt="img" />
+ </SimpleGrid>
 
- 
+ <Box  height='150px'></Box>
+
   </Grid>
+
+  <Flex flexDir={"column"} alignItems={"center"}>
+ <Flex alignItems={'flex-start'}  width={"84%"} margin={1}>
+    <Text fontSize={useBreakpointValue({ base: '2xl', md: '3xl' ,sm:"xl"})} fontWeight={'bold'}>
+    Plan Your Next Trip Using Tripoto's Complete Destination Guides
+    </Text>
+    </Flex>
+    <Flex width={"84%"} display={{lg:"flex", md: 'box',sm:'box' }} margin={4} flexDir='row' gap='8'>
+      <Flex width={{lg:'25%', md:"80%", sm:"80%"}} gap={3} flexDir="column">
+        <Image borderRadius={"7px"} src='https://cdn1.tripoto.com/media/filter/tst/img/2215463/Image/1669205399_germany.jpeg' alt='img2' />
+      </Flex>
+      <Flex width={{lg:'25%', md:"80%", sm:"80%"}} gap={3} flexDir="column">
+        <Image borderRadius={"7px"} src='https://cdn1.tripoto.com/media/filter/tst/img/1339961/Image/1613732480_4_4.jpg' alt='img2' />
+      </Flex>
+      <Flex width={{lg:'25%', md:"80%", sm:"80%"}} gap={3} flexDir="column">
+        <Image borderRadius={"7px"} src='https://cdn1.tripoto.com/media/filter/tst/img/1756031/Image/1599216481_rajasthan.jpg' alt='img2' />
+      </Flex>
+      <Flex width={{lg:'25%', md:"80%", sm:"80%"}} gap={3} flexDir="column">
+        <Image borderRadius={"7px"} src='https://cdn1.tripoto.com/media/filter/tst/img/1756031/Image/1599216560_kerala.jpg' alt='img2' />
+      </Flex>
+    </Flex>
+    </Flex>
+<br/>
+<br/>
+  </>
   )
 }
 
