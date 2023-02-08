@@ -89,14 +89,14 @@ function Booking() {
         </Box>
         <Box>
             <Text>Check-In Date</Text>
-            <Text fontWeight={'bold'}>5 February, 2023 12:00 PM</Text>
+            <Text fontWeight={'bold'}>15 February, 2023 12:00 PM</Text>
         </Box>
     </Flex>
     
     <Flex gap={"180px"}>
         <Box>
             <Text>Check-Out Date</Text>
-            <Text fontWeight={'bold'}>8 February, 2023 10:00 AM</Text>
+            <Text fontWeight={'bold'}>18 February, 2023 10:00 AM</Text>
         </Box>
         <Box>
             <Text>Duration</Text>
@@ -164,7 +164,7 @@ function Booking() {
         <br/> 
         <Flex gap={6} justifyContent={"space-between"} p={1}>
             <Text fontWeight={'bold'}>Grand Total</Text>
-            <Text fontWeight={'bold'} color={"blue.400"}>₹ {price-100-1040}</Text>
+            <Text fontWeight={'bold'} color={"blue.400"}>₹ {price-100+1040}</Text>
         </Flex>
 <br/>
         <Button onClick={handlesubmit} ml={24} colorScheme='blue'>Get Conformation</Button>

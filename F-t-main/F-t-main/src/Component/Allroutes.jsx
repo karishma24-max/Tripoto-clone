@@ -16,6 +16,7 @@ import { AdminQuerry } from '../Pages/Admin/AdminQuerry'
 import { SingleUser } from '../Pages/Admin/SingleUser'
 import Private from './Private'
 import Booking from '../Pages/Package/Booking'
+import PrivateRoute from "../PrivateRoute/PrivateRoute"
 const Allroutes = () => {
   return (
     <div><Routes>
@@ -34,7 +35,7 @@ const Allroutes = () => {
         <Route path="/Listofusers" element={<Listofusers />} />
         <Route path="/adminQuerry" element={<AdminQuerry  />} />
         <Route path="Listofusers/:id" element={<SingleUser />} />
-        <Route path='/Booking' element={<Booking/>}></Route>
+        <Route path='/Booking' element={<PrivateRoute><Booking/></PrivateRoute>}></Route>
     </Routes></div>
   )
 }

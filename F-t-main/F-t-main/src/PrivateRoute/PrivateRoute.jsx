@@ -12,3 +12,5 @@ const {isAuthc} =useContext(AuthContext);
 return children
 
 }
+
+export default PrivateRoute
